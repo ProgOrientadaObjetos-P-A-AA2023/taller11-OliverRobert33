@@ -1,25 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package paquete01;
 
-/**
- *
- * @author reroes
- */
+package paquete01;
+import java.util.ArrayList;
+import paquete02.Cuenta;
+import paquete03.Menu;
+import paquete04.*;
 public class Ejecutor01 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         // TODO code application logic here
+        ArrayList<Menu>lista = new ArrayList<>();
+        
+        
+        MenuNinos mNinos01 = new MenuNinos("Niños 01", 2, 1, 1.5);
+        mNinos01.calcularValorMenu();
+        lista.add(mNinos01);
+        
+        MenuNinos mNinos02 = new MenuNinos("Niños 02", 3, 1, 1.5);
+        mNinos02.calcularValorMenu();
+        lista.add(mNinos02);
+        
+        MenuEconomico mEconomico01 = new MenuEconomico("Econo 001", 4,25);
+        mEconomico01.calcularValorMenu();
+        lista.add(mEconomico01);
+        
+        MenuDia mDia01 = new MenuDia("Dia 001", 5, 1,  1);
+        mDia01.calcularValorMenu();
+        lista.add(mDia01);
+        
+        MenuCarta mCarta01 = new MenuCarta("Carta 001", 6, 1.5, 2, 10);
+        mCarta01.calcularValorMenu();
+        lista.add(mCarta01);
+        
+        
+        Cuenta cuenta = new Cuenta("René Elizalde", lista, 10);
+        cuenta.calcularSubtotal();
+        cuenta.calcularValorTotal();
+        
+        System.out.print(cuenta);
     }
-    
-    
 }
+
 // lo que debe presentar
 /*
 Factura
@@ -57,10 +77,10 @@ Menu a la Carta:
 	Valor guarnición: 1.5
 	Valor bebida: 2.0
 	Porcentaje Adicional: 10,00
-	Valor del Menú: 10,10
+	Valor del Menú: 10,45
 
-Subtotal: 30,1
+Subtotal: 30,5
 IVA: 10,0%
-Total a pagar: 33,110
+Total a pagar: 33,495
 
 */
